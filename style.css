@@ -1,0 +1,179 @@
+.football_field
+{
+  background-color: #00f37b;
+  position: fixed;
+  top: auto;
+  left: auto;
+  width: 99%;
+  height: 99%;
+  border: 2px solid #fff;
+  margin: auto;
+
+
+}
+.gate_left{
+
+	position: fixed;
+	top: 40%;
+	left: 0%;
+	border: 2px solid #fff;
+	width: 100px;
+    height: 200px;
+
+}
+.gate_right{
+
+	position: fixed;
+	top: 40%;
+	left: 94.5%;
+	border: 2px solid #fff;
+	width: 100px;
+    height: 200px;
+
+}
+
+.gate_zone_right{
+	position: fixed;
+	top: 46%;
+	left: 90%;
+
+	width: 50px;
+  height: 100px;
+  border: 2px solid #fff;
+  border-radius: 100% 0 0 100% / 50% 0 0 50%;
+  
+
+}
+
+.gate_zone_right_square{
+	position: fixed;
+    top: 37%;
+    left: 92.8%;
+    width: 130px;
+    height: 270px;
+    border: 2px solid #fff;
+
+
+}
+
+.gate_zone_left{
+	position: fixed;
+	top: 46%;
+	left: 7%;
+
+	width: 50px;
+  height: 100px;
+  border: 2px solid #fff;
+  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+  
+}
+
+
+.gate_zone_left_square{
+	position: fixed;
+    top: 37%;
+    left: 0%;
+    width: 130px;
+    height: 270px;
+    border: 2px solid #fff;
+ 
+  
+}
+
+
+
+
+
+
+
+
+.center_field{
+	position: fixed;
+	border-radius: 61px;
+	border: 2px solid #fff;
+    top: 45%;
+       left: 46.9%;
+	width: 121px;
+	height: 121px;
+
+}
+
+.centr_line{
+	position: fixed;
+	left: 50%;
+	border: 2px solid #fff;
+	width: 0px;
+	height: 100%;
+
+}
+
+
+
+.ball{
+width: 25px;
+
+
+}
+
+.collapse_ball{
+	width: 25px;
+	height: 25px;
+	border-radius: 13px;
+	border: 2px solid red;
+	position: fixed;
+	left: 49.5%;
+	top: 49.5%;
+}
+
+.playersoccer{
+	width: 25px;
+	height: 50px;
+	border: 2px solid red; 
+	position: fixed;
+	left: 30%
+	top:30%;
+	animation:animation-playersoccerwalk;
+	animation-duration: 1s;
+	animation-timing-function: ease;
+	/*animation-delay: 2s; */
+	animation-iteration-count: infinite;
+	/*background-image : url('1stop.png');   */
+
+
+}
+
+
+@keyframes animation-playersoccerwalk {   
+  0% {     
+    background-image : url('1stop.png');   
+  }   
+  50% {     
+    background-image : url('2walk.png');  
+  } 
+  100% {
+    background-image : url('3walk.png');
+   }
+}
+
+@keyframes animation-playersoccerwalkrotate {   
+  0% {     
+    background-image : url('1stoprotate.png');   
+  }   
+  50% {     
+    background-image : url('2walkrotate.png');  
+  } 
+  100% {
+    background-image : url('3walkrotate.png');
+   }
+}
+
+
+
+@keyframes animation-playersoccerstop {   
+  0% {     
+    background-image : url('1stop.png');   
+  }   
+  100% {     
+    background-image : url('1stop.png');   
+  }  
+}
