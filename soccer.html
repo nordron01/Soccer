@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FOOTBALL</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="jwerty.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script>
+        var $j = jQuery.noConflict();
+
+        jQuery(document).ready(function() {
+            console.log("Gol");
+            console.log(jQuery("ball"));
+            jQuery(function() {
+
+            });
+
+            jQuery("#ball").draggable({
+                containment: '#pole',
+                stack: '#pole div',
+
+                classes: {
+                    "ui-draggable": "ui-state-hover"
+                },
+                cursor: 'move',
+                revert: false,
+
+                drag: function(event, ui) {
+                    console.log(ui.position.left);
+                    console.log(ui.position.top);
+
+                    //x:ui.position.left,
+                    //y:ui.position.top	
+
+                }
+
+            });
+
+            var x = 3;
+
+            var count37 = 0;
+            var int37 = 0;
+            var rotating37 = false;
+
+            function move37(paranm) {
+                count37++;
+                if (count37 == 1) {
+                    int37 = setInterval(function() {
+                        jQuery("#playersoccer").css('left', parseInt(jQuery("#playersoccer").css('left')) - x);
+                    }, 50);
+                }
+
+            }
+
+            var count38 = 0;
+            var int38 = 0;
+            var rotating38 = false;
+
+            function move38(paranm) {
+                count38++;
+                if (count38 == 1) {
+                    int38 = setInterval(function() {
+                        jQuery("#playersoccer").css('top', parseInt(jQuery("#playersoccer").css('top')) - x);
+                    }, 50);
+                }
+
+            }
+
+            var count39 = 0;
+            var int39 = 0;
+            var rotating39 = false;
+
+            function move39(paranm) {
+                count39++;
+                if (count39 == 1) {
+                    int39 = setInterval(function() {
+                        jQuery("#playersoccer").css('left', parseInt(jQuery("#playersoccer").css('left')) + x);
+                    }, 50);
+                }
+
+            }
+
+            var count40 = 0;
+            var int40 = 0;
+            var rotating40 = false;
+
+            function move40(paranm) {
+                count40++;
+                if (count40 == 1) {
+                    int40 = setInterval(function() {
+                        jQuery("#playersoccer").css('top', parseInt(jQuery("#playersoccer").css('top')) + x);
+                    }, 50);
+                }
+
+            }
+
+            function colapsing() {
+            	//console.log(parseInt(jQuery("#ball").css('left')));
+                //    console.log(parseInt(jQuery("#playersoccer").css('left')));
+                if (Math.abs(parseInt(jQuery("#playersoccer").css('left')) - parseInt(jQuery("#ball").css('left')) )  <= 25   ){
+
+                    console.log(parseInt(jQuery("#ball").css('left')));
+                    console.log(parseInt(jQuery("#playersoccer").css('left')));
+                }
+                //	jQuery( "#ball" ).css('top');
+
+            }
+
+            document.onkeydown = function(e) {
+                e = e || window.event;
+                colapsing();
+
+                if (e.keyCode == 37) {
+                    move37(true);
+                    rotating37 = true;
+                    if(rotating37 == true && rotating38 == false || rotating37 == true && rotating40 == false ){
+                    		jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                    		jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 0 + 'deg)'});
+                    	}
+
+                    
+                    if (rotating38 == true) {
+                        jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 45 + 'deg)'});
+                        jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                    }
+                    
+                    if (rotating40 == true) {
+                        jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 135 + 'deg)'});;
+                        jQuery("#playersoccer").css("animation", "animation-playersoccerwalk 1s ease infinite");
+                    }
+                    
+
+
+                    
+
+                }
+
+                if (e.keyCode == 38) {
+                    move38(true);
+                    
+                    rotating38 = true;
+
+                    if(rotating38 == true && rotating39 == false || rotating38 == true && rotating37 == false ){
+                    	
+                    		jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 90 + 'deg)'});
+                    		jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                    	}
+
+                    if (rotating37 == true) {
+                   
+                        jQuery("#playersoccer").css({
+                            WebkitTransform: 'rotate(' + 45 + 'deg)'
+                        });;
+                    }
+
+                    if (rotating39 == true) {
+                       
+                        jQuery("#playersoccer").css({
+                            WebkitTransform: 'rotate(' + 135 + 'deg)'
+                        });;	
+					}
+
+
+                }
+                if (e.keyCode == 39) {
+                    move39(true);
+
+                    rotating39 = true;
+                    
+
+                    if(rotating39 == true && rotating38 == false || rotating39 == true && rotating40 == false ){
+                    	
+                    		jQuery("#playersoccer").css("animation", "animation-playersoccerwalk 1s ease infinite");
+                    		jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 0 + 'deg)'});
+                    	}
+
+                    if (rotating38 == true) {
+                    	jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 135 + 'deg)'});
+                        jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                    }
+                    if (rotating40 == true) {
+                        jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 225 + 'deg)' });
+                        jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                    }
+					
+                     
+
+
+
+
+
+                }
+                if (e.keyCode == 40) {
+                    move40(true);
+                    rotating40 = true;
+
+					if(rotating40 == true && rotating39 == false || rotating40 == true && rotating37 == false ){
+                    		
+                    		jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 90 + 'deg)'});
+                    		jQuery("#playersoccer").css("animation", "animation-playersoccerwalk 1s ease infinite");
+                    	}
+                    if (rotating37 == true) {
+                     
+                        jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 315 + 'deg)'});
+                        jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                    }
+                    if (rotating39 == true) {
+
+                        jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 225 + 'deg)'});
+                        jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                    }
+					
+
+
+                    	
+
+
+                }
+
+                if (e.keyCode == 32) {
+                    x = 7;
+                    jQuery("#playersoccer").css("animation-duration","0.5s");
+                }
+
+                return true;
+
+            }
+
+              document.onkeyup = function(e) {
+                e = e || window.event;
+                //colapsing();
+                if (e.keyCode == 37) {
+                    setTimeout(function() {
+                        clearInterval(int37);
+                        count37 = 0;
+                        colapsing();
+                        rotating37 = false;
+                       // jQuery("#playersoccer").css("animation", "animation-playersoccerstop 1s ease infinite");
+                        if(rotating37 == false && rotating38 == true){
+                        	jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 90 + 'deg)'});
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                        }
+
+                        
+                        if(rotating37 == false && rotating40 == true){
+                        	jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 90 + 'deg)'});
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerwalk 1s ease infinite");
+                        }
+
+
+                        if(rotating37 == false  && rotating38 == false  && rotating39 == false  && rotating40 == false  ){
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerstop 1s ease infinite");
+                        }
+                    }, 50);
+                }
+
+                if (e.keyCode == 38) {
+                    setTimeout(function() {
+                        clearInterval(int38);
+                        count38 = 0;
+                        colapsing();
+                        //jQuery("#playersoccer").css("animation", "animation-playersoccerstop 1s ease infinite");
+
+                        rotating38 = false;
+                        if(rotating38 == false && rotating37 == true){
+                        	jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 0 + 'deg)'});
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                        }
+                        if(rotating38 == false && rotating39 == true){
+                        	jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 0 + 'deg)'});
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerwalk 1s ease infinite");
+                        }
+
+
+                        if(rotating37 == false  && rotating38 == false  && rotating39 == false  && rotating40 == false  ){
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerstop 1s ease infinite");
+                        }
+
+                    }, 50);
+                }
+                if (e.keyCode == 39) {
+                    setTimeout(function() {
+                        clearInterval(int39);
+                        count39 = 0;
+                        colapsing();
+                        rotating39 = false;
+
+                        //jQuery("#playersoccer").css("animation", "animation-playersoccerstop 1s ease infinite");
+                        if(rotating39 == false && rotating38 == true ){
+                        	jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 90 + 'deg)'});
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                        }
+                        if(rotating39 == false && rotating40 == true){
+                        	jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 90 + 'deg)'});
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerwalk 1s ease infinite");
+                        }
+
+
+                        if(rotating37 == false  && rotating38 == false  && rotating39 == false  && rotating40 == false  ){
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerstop 1s ease infinite");
+                        }
+
+
+
+                    }, 50);
+                }
+                if (e.keyCode == 40) {
+                    setTimeout(function() {
+                        clearInterval(int40);
+                        count40 = 0;
+                        colapsing();
+                     
+                       // 
+
+                        rotating40 = false;
+                        if(rotating40 == false && rotating39 == true){
+                        	jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 0 + 'deg)'});
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerwalk 1s ease infinite");
+                        }
+                        if(rotating40 == false && rotating37 == true){
+                        	jQuery("#playersoccer").css({WebkitTransform: 'rotate(' + 0 + 'deg)'});
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerwalkrotate 1s ease infinite");
+                        }
+
+
+                        if(rotating37 == false  && rotating38 == false  && rotating39 == false  && rotating40 == false  ){
+                        	jQuery("#playersoccer").css("animation", "animation-playersoccerstop 1s ease infinite");
+                        }
+
+
+
+                    }, 50);
+                }
+
+                if (e.keyCode == 32) {
+                    x = 3;
+                    jQuery("#playersoccer").css("animation-duration","1s");
+                }
+                return true;
+            }
+
+            jQuery("#pole").droppable({
+                accept: '', // что можно пооложить
+                classes: {
+                    "ui-droppable-hover": "ui-state-hover"
+                },
+                drop: handleCardDrop
+            });
+
+            function handleCardDrop(event, ui) {
+                console.log(this);
+            };
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="football_field ui-droppable" id="pole">
+
+        <div class="gate_left">
+        </div>
+        <div class="gate_zone_left_square">
+        </div>
+
+        <div class="gate_zone_left">
+        </div>
+
+        <div class="centr_line">
+
+            <div class="center_field">
+
+            </div>
+        </div>
+
+        <div class="collapse_ball ui-widget-content" id="ball">
+            <img src="https://js.cx/clipart/ball.svg" class="ball">
+        </div>
+
+        <div class="playersoccer" id="playersoccer">
+        </div>
+
+        <div class="gate_zone_right">
+        </div>
+        <div class="gate_zone_right_square">
+        </div>
+
+        <div class="gate_right">
+        </div>
+    </div>
+
+</body>
+
+</html>
